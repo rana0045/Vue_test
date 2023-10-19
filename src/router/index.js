@@ -10,7 +10,22 @@ const router = createRouter({
     {
       path: '/',
       name: 'login',
-      component: LoginForm
+      component: LoginForm,
+
+      beforeEnter: (to, from, next) => {
+        const token = localStorage.getItem("token")
+
+        if (token !== null) {
+          // Token is valid, allow access to the route
+          next({
+            name: "tasklist",
+          })
+        } else {
+          // Token is null, redirect to the login page
+          next()
+        }
+      }
+
     },
     {
       path: '/about',
@@ -33,7 +48,7 @@ const router = createRouter({
     },
     {
       path: '/tasklist',
-      name: 'home',
+      name: 'tasklist',
       component: HomeView,
       beforeEnter: (to, from, next) => {
         const token = localStorage.getItem("token")
