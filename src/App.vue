@@ -37,8 +37,7 @@ export default {
     const router = useRouter();
 
     const logout = () => {
-      // Perform your logout logic, e.g., clear user session, cookies, or tokens.
-      // Then, navigate to the login page or any other appropriate route.
+     
       localStorage.removeItem("token");
       router.push({ path: "/" });
     };

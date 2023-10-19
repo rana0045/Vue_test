@@ -13,7 +13,7 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 ## Project Setup
 
 ```sh
-npm install
+npm install --legacy-peer-deps
 ```
 
 ### Compile and Hot-Reload for Development
@@ -25,5 +25,5 @@ npm run dev
 ### Compile and Minify for Production
 
 ```sh
-npm run build
+npm run build --legacy-peer-deps
 ```

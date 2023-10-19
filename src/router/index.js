@@ -39,10 +39,10 @@ const router = createRouter({
         const token = localStorage.getItem("token")
 
         if (token !== null) {
-          // Token is valid, allow access to the route
+
           next()
         } else {
-          // Token is null, redirect to the login page
+
           next({
             name: "login",
           })

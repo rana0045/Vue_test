@@ -53,7 +53,7 @@ export default {
     const router = useRouter();
     const username = ref("");
     const password = ref("");
-    const showPassword = ref(false); // Add this data property
+    const showPassword = ref(false);  
 
     const togglePasswordVisibility = () => {
       showPassword.value = !showPassword.value;
@@ -81,7 +81,7 @@ export default {
       }
     };
 
-    return { username, password, login: loginToApp, showPassword, togglePasswordVisibility }; // Include showPassword and togglePasswordVisibility
+    return { username, password, login: loginToApp, showPassword, togglePasswordVisibility };  
   },
 };
 </script>

@@ -22,11 +22,11 @@ export default {
     };
   },
   mounted() {
-    // Make an Axios GET request to the API
+    
     axios.get("https://jsonplaceholder.typicode.com/todos")
       .then((response) => {
         console.log(response.data);
-        // Set the tasks data to the API response
+        
         this.tasks = response.data;
       })
       .catch((error) => {

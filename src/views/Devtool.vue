@@ -6,7 +6,7 @@
   </template>
   
   <script>
-  import DevTool from "@/components/DevTool.vue"; // Adjust the path as needed
+  import DevTool from "@/components/DevTool.vue";  
   
   export default {
     components: {

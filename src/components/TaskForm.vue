@@ -49,14 +49,14 @@ export default {
       position: toast.POSITION.TOP_CENTER,
       type:"success"  
     })
-          // You can handle the response here, such as emitting an event or updating the UI.
+          
         })
         .catch(error => {
           console.error('Error adding task:', error);
-          // Handle the error as needed.
+         
         });
 
-      // Reset the form
+   
       this.newTask.title = "";
       this.newTask.status = false;
     },

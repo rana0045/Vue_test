@@ -40,7 +40,7 @@ import 'vue3-toastify/dist/index.css';
       position: toast.POSITION.TOP_CENTER,
       type: "info"  
     })
-         // Toggle the status of the task
+       
       },
     },
   };
