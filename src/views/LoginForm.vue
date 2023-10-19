@@ -45,9 +45,11 @@
 import { login } from "@/mock-auth";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 export default {
   setup() {
+      
     const router = useRouter();
     const username = ref("");
     const password = ref("");
@@ -59,10 +61,23 @@ export default {
 
     const loginToApp = () => {
       if (login(username.value, password.value)) {
-        router.push("/tasklist");
+       
+        toast("login successfully!",{
+      autoClose:1000,
+      position: toast.POSITION.TOP_CENTER,
+      type:"success"  
+    })
         localStorage.setItem("token", "token");
+
+        setTimeout(()=>{
+          router.push("/tasklist");
+        }, 2000)
       } else {
-        alert("Invalid username or password");
+        toast("user not found try again",{
+      autoClose:1000,
+      position: toast.POSITION.TOP_CENTER,
+      type:"error"  
+    })
       }
     };
 

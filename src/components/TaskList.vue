@@ -22,6 +22,8 @@
   
   
   <script>
+  import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
   export default {
     name: "TaskList",
     props: {
@@ -32,7 +34,13 @@
     },
     methods: {
       toggleCompletion(task) {
-        task.completed = !task.completed; // Toggle the status of the task
+        task.completed = !task.completed;
+        toast("status is change!",{
+      autoClose:1000,
+      position: toast.POSITION.TOP_CENTER,
+      type: "info"  
+    })
+         // Toggle the status of the task
       },
     },
   };

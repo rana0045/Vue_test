@@ -22,7 +22,8 @@
 
 <script>
 import axios from 'axios';
-
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 export default {
   data() {
     return {
@@ -42,6 +43,12 @@ export default {
       axios.post('https://jsonplaceholder.typicode.com/todos', payload)
         .then(response => {
           console.log('Task added:', response.data);
+
+          toast("Task Added",{
+      autoClose:1000,
+      position: toast.POSITION.TOP_CENTER,
+      type:"success"  
+    })
           // You can handle the response here, such as emitting an event or updating the UI.
         })
         .catch(error => {
