@@ -7,9 +7,10 @@
 
           </div>
           <div class="ml-4">
-            <button @click="toggleCompletion(task)" class="px-3 py-1 bg-blue-500 text-white rounded">
-Change status
+            <button @click="toggleCompletion(task)" class="px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-5 lg:py-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg hover:from-blue-600 hover:to-blue-800 focus:outline-none focus:ring focus:ring-blue-300 text-base sm:text-base md:text-lg lg:text-xl font-semibold shadow-md transform transition-transform hover:scale-105 hover:duration-300">
+              Change status
             </button>
+            
           </div>
         </div>
         <div :class="{'text-green-600': task.completed, 'text-red-600': !task.completed}">
