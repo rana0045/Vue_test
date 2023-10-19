@@ -3,13 +3,13 @@
     <form @submit.prevent="addTask" class="bg-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg shadow-lg">
       <div class="mb-4">
         <input
-        v-model="username"
-        id="username"
-        type="text"
-        class="w-full py-2 px-3 rounded-full text-gray-700 placeholder-gray-400 text-lg sm:text-xl border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
-        placeholder="Add Task"
-        required
-      />
+          v-model="newTask.title"
+          id="title"
+          type="text"
+          class="w-full py-2 px-3 rounded-full text-gray-700 placeholder-gray-400 text-lg sm:text-xl border border-gray-300 focus:outline-none focus:ring focus:ring-blue-300"
+          placeholder="Add Task"
+          required
+        />
       </div>
       <div class="mb-4">
         <label for="status" class="block font-semibold text-base sm:text-lg md:text-l lg:text-l">Completion Status:</label>
@@ -20,8 +20,9 @@
   </div>
 </template>
 
-
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -33,12 +34,24 @@ export default {
   },
   methods: {
     addTask() {
-      this.$emit("add-task", this.newTask);
-
-      this.newTask = {
-        title: "",
-        status: false,
+      const payload = {
+        title: this.newTask.title,
+        completed: this.newTask.status,
       };
+
+      axios.post('https://jsonplaceholder.typicode.com/todos', payload)
+        .then(response => {
+          console.log('Task added:', response.data);
+          // You can handle the response here, such as emitting an event or updating the UI.
+        })
+        .catch(error => {
+          console.error('Error adding task:', error);
+          // Handle the error as needed.
+        });
+
+      // Reset the form
+      this.newTask.title = "";
+      this.newTask.status = false;
     },
   },
 };
